@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/rio_c/Repos/kotlin_neardery/music_player/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/rio_c/Repos/kotlin_neardery/music_player/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/rio_c/Repos/kotlin_neardery/music_player/app/src/main/res/drawable/play_pause_btn.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/rio_c/Repos/kotlin_neardery/music_player/app/src/main/res/layout/activity_main.xml" value="0.25" />
       </map>
     </option>
   </component>

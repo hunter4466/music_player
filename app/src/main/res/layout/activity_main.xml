@@ -4,7 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:backgroundTint="#912B44">
+
+    <com.akaita.android.circularseekbar.CircularSeekBar
+        android:id="@+id/radialSeekBar"
+        android:layout_width="311dp"
+        android:layout_height="305dp"
+        app:enabled="true"
+        app:innerCircleColor="#e0f7e9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.821"
+        app:max="100"
+        app:progress="15"
+        app:progressTextColor="@android:color/black"
+        app:progressTextSize="26"
+        app:ringColor="#2986cc"
+        app:ringWidth="0.5"
+        app:showIndicator="true">
+
+    </com.akaita.android.circularseekbar.CircularSeekBar>
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -13,9 +35,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/pause_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -25,38 +46,15 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <Button
-        android:id="@+id/pause_btn"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Pause"
-        app:layout_constraintEnd_toStartOf="@+id/next_btn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/play_btn"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-    <Button
-        android:id="@+id/next_btn"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/pause_btn"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-    <Button
+    <ImageView
         android:id="@+id/play_btn"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Play"
-        app:layout_constraintEnd_toStartOf="@+id/pause_btn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+        android:layout_width="59dp"
+        android:layout_height="53dp"
+        app:layout_constraintBottom_toBottomOf="@+id/radialSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/radialSeekBar"
+        app:layout_constraintStart_toStartOf="@+id/radialSeekBar"
+        app:layout_constraintTop_toTopOf="@+id/radialSeekBar"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
