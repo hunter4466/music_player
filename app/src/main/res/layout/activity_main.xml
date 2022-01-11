@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:backgroundTint="#912B44">
+    tools:context=".MainActivity">
 
     <com.akaita.android.circularseekbar.CircularSeekBar
         android:id="@+id/radialSeekBar"
@@ -17,43 +16,92 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.821"
+        app:layout_constraintVertical_bias="0.661"
         app:max="100"
         app:progress="15"
         app:progressTextColor="@android:color/black"
         app:progressTextSize="26"
-        app:ringColor="#2986cc"
+        app:ringColor="#673AB7"
         app:ringWidth="0.5"
         app:showIndicator="true">
 
     </com.akaita.android.circularseekbar.CircularSeekBar>
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="261dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
-    <ImageView
+    <ImageButton
         android:id="@+id/play_btn"
-        android:layout_width="59dp"
-        android:layout_height="53dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00A82626"
+        android:contentDescription="TODO"
+        android:foregroundTint="#872424"
+        android:src="@android:drawable/ic_media_play"
+        app:iconTint="#9A2D2D"
         app:layout_constraintBottom_toBottomOf="@+id/radialSeekBar"
         app:layout_constraintEnd_toEndOf="@+id/radialSeekBar"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="@+id/radialSeekBar"
         app:layout_constraintTop_toTopOf="@+id/radialSeekBar"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/radialSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/radialSeekBar"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="@+id/radialSeekBar"
+        app:layout_constraintTop_toTopOf="@+id/radialSeekBar"
+        app:layout_constraintVertical_bias="0.923"
+        app:srcCompat="@android:drawable/ic_media_pause" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/radialSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/radialSeekBar"
+        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintStart_toStartOf="@+id/radialSeekBar"
+        app:layout_constraintTop_toTopOf="@+id/radialSeekBar"
+        app:layout_constraintVertical_bias="0.501"
+        app:srcCompat="@android:drawable/ic_media_next" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/radialSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/radialSeekBar"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="@+id/radialSeekBar"
+        app:layout_constraintTop_toTopOf="@+id/radialSeekBar"
+        app:layout_constraintVertical_bias="0.501"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/radialSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/radialSeekBar"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="@+id/radialSeekBar"
+        app:layout_constraintTop_toTopOf="@+id/radialSeekBar"
+        app:layout_constraintVertical_bias="0.501"
+        app:srcCompat="@android:drawable/ic_media_previous" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="-1"
+        app:layout_constraintBottom_toBottomOf="@+id/radialSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/radialSeekBar"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="@+id/radialSeekBar"
+        app:layout_constraintTop_toTopOf="@+id/radialSeekBar"
+        app:layout_constraintVertical_bias="0.501"
         app:srcCompat="@android:drawable/ic_media_play" />
 
 
