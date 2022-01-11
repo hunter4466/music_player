@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        playBtn = findViewById(R.id.play_btn)
+        /*playBtn = findViewById(R.id.play_btn)
         var mediaSound = MediaPlayer.create(this, R.raw.backinblack)
         playBtn.setOnClickListener{
             playing = if (playing) {
@@ -21,6 +21,6 @@ class MainActivity : AppCompatActivity() {
                 mediaSound.start()
                 true
             }
-        }
+        }*/
     }
 }
