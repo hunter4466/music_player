@@ -19,5 +19,9 @@
         android:id="@+id/nowPlayingFragment"
         android:name="com.ravnnerdery.musicplayer.NowPlayingFragment"
         android:label="fragment_now_playing"
-        tools:layout="@layout/fragment_now_playing" />
+        tools:layout="@layout/fragment_now_playing" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
 </navigation>
