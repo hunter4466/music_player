@@ -33,7 +33,8 @@ open class MusicListFragment : Fragment() {
             authorName = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM).toString()
             val titleName = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE).toString()
             newButton.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            newButton.text = elm
+            newButton.width = 1200
+            newButton.text = titleName
             newButton.setOnClickListener{
                 requireView().findNavController()
                     .navigate(MusicListFragmentDirections.actionMusicListFragmentToNowPlayingFragment(elm, titleName))

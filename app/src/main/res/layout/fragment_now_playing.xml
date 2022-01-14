@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dadee7"
+    android:background="#000000"
     tools:context=".NowPlayingFragment">
 
     <com.akaita.android.circularseekbar.CircularSeekBar
@@ -13,7 +13,7 @@
         android:layout_width="311dp"
         android:layout_height="305dp"
         app:enabled="true"
-        app:innerCircleColor="#dadee7"
+        app:innerCircleColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         app:progress="15"
         app:progressTextColor="@android:color/black"
         app:progressTextSize="26"
-        app:ringColor="#800020"
+        app:ringColor="#dadee7"
         app:ringWidth="0.5"
         app:showIndicator="true">
 
@@ -111,6 +111,7 @@
         android:layout_width="409dp"
         android:layout_height="31dp"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/radialSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
