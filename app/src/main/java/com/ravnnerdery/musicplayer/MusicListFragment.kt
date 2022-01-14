@@ -13,7 +13,6 @@ import androidx.navigation.findNavController
 
 open class MusicListFragment : Fragment() {
     private lateinit var authorName: String
-    private lateinit var titleName: String
     private lateinit var metaRetriever: MediaMetadataRetriever
     private lateinit var uriPath: String
     private lateinit var uri: Uri
@@ -32,12 +31,12 @@ open class MusicListFragment : Fragment() {
             uri = Uri.parse(uriPath)
             metaRetriever.setDataSource(context, uri)
             authorName = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM).toString()
-            titleName = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE).toString()
+            val titleName = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE).toString()
             newButton.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             newButton.text = elm
             newButton.setOnClickListener{
                 requireView().findNavController()
-                    .navigate(MusicListFragmentDirections.actionMusicListFragmentToNowPlayingFragment(elm))
+                    .navigate(MusicListFragmentDirections.actionMusicListFragmentToNowPlayingFragment(elm, titleName))
             }
             musicListContainer.addView(newButton)
         }

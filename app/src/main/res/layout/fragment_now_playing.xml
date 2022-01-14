@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#dadee7"
     tools:context=".NowPlayingFragment">
 
     <com.akaita.android.circularseekbar.CircularSeekBar
@@ -12,17 +13,17 @@
         android:layout_width="311dp"
         android:layout_height="305dp"
         app:enabled="true"
-        app:innerCircleColor="#e0f7e9"
+        app:innerCircleColor="#dadee7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661"
+        app:layout_constraintVertical_bias="0.903"
         app:max="100"
         app:progress="15"
         app:progressTextColor="@android:color/black"
         app:progressTextSize="26"
-        app:ringColor="#673AB7"
+        app:ringColor="#800020"
         app:ringWidth="0.5"
         app:showIndicator="true">
 
@@ -107,11 +108,26 @@
 
     <TextView
         android:id="@+id/titleView"
-        android:layout_width="197dp"
-        android:layout_height="25dp"
+        android:layout_width="409dp"
+        android:layout_height="31dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/radialSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.962" />
+
+    <ImageView
+        android:id="@+id/albumPic"
+        android:layout_width="328dp"
+        android:layout_height="284dp"
+        android:background="#000000"
+        android:scaleType="centerInside"
+        android:src="@drawable/backinblack"
+        app:layout_constraintBottom_toTopOf="@+id/titleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.561" />
 </androidx.constraintlayout.widget.ConstraintLayout>

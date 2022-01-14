@@ -13,7 +13,8 @@
         <action
             android:id="@+id/action_musicListFragment_to_nowPlayingFragment"
             app:destination="@id/nowPlayingFragment"
-            app:enterAnim="@android:anim/slide_in_left" />
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/nowPlayingFragment"
@@ -22,6 +23,9 @@
         tools:layout="@layout/fragment_now_playing" >
         <argument
             android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="title"
             app:argType="string" />
     </fragment>
 </navigation>
