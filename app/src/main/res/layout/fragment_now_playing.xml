@@ -117,31 +117,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.874" />
+        app:layout_constraintVertical_bias="0.741" />
 
     <ImageView
         android:id="@+id/albumPic"
-        android:layout_width="328dp"
-        android:layout_height="284dp"
+        android:layout_width="329dp"
+        android:layout_height="256dp"
         android:background="#000000"
         android:scaleType="centerInside"
         android:src="@drawable/backinblack"
         app:layout_constraintBottom_toTopOf="@+id/titleView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.561" />
+        app:layout_constraintVertical_bias="0.246" />
 
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="357dp"
         android:layout_height="16dp"
+        android:min="0"
         android:progressBackgroundTint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/radialSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleView"
-        app:layout_constraintVertical_bias="0.466"
-        android:min="0"/>
+        app:layout_constraintVertical_bias="0.683" />
+
+    <TextView
+        android:id="@+id/trackAlbum"
+        android:layout_width="408dp"
+        android:layout_height="30dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
