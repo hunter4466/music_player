@@ -12,10 +12,7 @@ import android.widget.LinearLayout
 import androidx.navigation.findNavController
 
 open class MusicListFragment : Fragment() {
-    private lateinit var authorName: String
-    private lateinit var metaRetriever: MediaMetadataRetriever
-    private lateinit var uriPath: String
-    private lateinit var uri: Uri
+
     private lateinit var binding: View
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,19 +22,18 @@ open class MusicListFragment : Fragment() {
         val allMusic = (activity as MainActivity).listAllMusic()
         val musicListContainer = binding.findViewById<View>(R.id.musicList) as LinearLayout
         for (elm in allMusic) {
-            val newButton = Button(context)
-            metaRetriever = MediaMetadataRetriever()
-            uriPath = "android.resource://"+activity?.packageName+"/raw/$elm"
-            uri = Uri.parse(uriPath)
+            val metaRetriever = MediaMetadataRetriever()
+            val uriPath = "android.resource://"+activity?.packageName+"/raw/${elm}"
+            val uri = Uri.parse(uriPath)
             metaRetriever.setDataSource(context, uri)
-            authorName = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM).toString()
             val titleName = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE).toString()
+            val newButton = Button(context)
             newButton.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             newButton.width = 1200
             newButton.text = titleName
             newButton.setOnClickListener{
                 requireView().findNavController()
-                    .navigate(MusicListFragmentDirections.actionMusicListFragmentToNowPlayingFragment(elm, titleName))
+                    .navigate(MusicListFragmentDirections.actionMusicListFragmentToNowPlayingFragment(elm))
             }
             musicListContainer.addView(newButton)
         }
