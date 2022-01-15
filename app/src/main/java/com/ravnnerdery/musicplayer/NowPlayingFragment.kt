@@ -45,6 +45,7 @@ class NowPlayingFragment : Fragment() {
         playBtn = binding.findViewById(R.id.play_btn)
         name = args.name
         nowPlaying = true
+        seekBar.max= (activity as MainActivity).getCurrentSongDuration(name)!!
 
         // ------------ META RETRIEVER ------------------
         fun setDisplayInfo(data: String){
@@ -56,14 +57,8 @@ class NowPlayingFragment : Fragment() {
             val titleName = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE).toString()
             trackPic.setImageURI(Uri.parse(imgUri))
             trackNameTitle.text = titleName
-            val mainExecutor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
-            fun runner(){
-                mainExecutor.schedule({
-                    /*(activity as MainActivity).getCurrentSongPosition()?.let { seekBar.setProgress(it, true) }*/
-                    runner()
-                }, 1, TimeUnit.SECONDS)
-            }
-            runner()
+
+
         }
         setDisplayInfo(name)
         // ------------ LISTENERS ----------------------
@@ -104,12 +99,8 @@ class NowPlayingFragment : Fragment() {
             (activity as MainActivity).stopCurrent()
             (activity as MainActivity).playSong(name)
         }
-        seekBar.max = (activity as MainActivity).getCurrentSongDuration()!!
 
         return binding
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }
 
