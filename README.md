@@ -36,7 +36,9 @@ In this project, l built a music player that displays a list of ten fixed songs 
 
    cd ...~/music_player
 
-3. Debug in your preferred
+3. Debug
+   
+   Open up you preferred emulator or android device.
 
 ### Assumptions
 
