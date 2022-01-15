@@ -1,4 +1,4 @@
-# Space challenge
+# Music Player
 In this project, l built a music player that displays a list of ten fixed songs and allowes the user to interact with the application to play, pause, forward and back music, and displays music information.
 
 ## Screenshots
