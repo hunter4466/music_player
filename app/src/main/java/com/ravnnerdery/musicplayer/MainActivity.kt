@@ -9,7 +9,7 @@ import java.lang.reflect.Field
 
 class MainActivity : AppCompatActivity() {
     private var nowPlayingIndexer: MutableList<Pair<String, MediaPlayer>> = mutableListOf()
-    private val allMusic: Array<Field> = R.raw::class.java.fields
+    private val allMusic: Array<Field> = R.raw::class.java.fields // TODO: why java fields?
     private var currentTrack: MediaPlayer? = null
     override fun onCreate(savedInstanceState: Bundle?) {
        allMusic.forEachIndexed{ _, elm ->

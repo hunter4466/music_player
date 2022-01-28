@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,7 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import com.akaita.android.circularseekbar.CircularSeekBar
 
 class NowPlayingFragment : Fragment() {
@@ -25,16 +25,17 @@ class NowPlayingFragment : Fragment() {
     private lateinit var uri: Uri
     private lateinit var imgUri: String
     private lateinit var runnable: Runnable
+    // TODO: handler is deprecated
     private var handler = Handler()
 
+    //TODO: why build versions code N?
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // ------------- BINDINGS --------------------------
-
-        var nowPlayingTrackName = "firstPlay"
+        var nowPlayingTrackName = "firstPlay" //TODO: please avoid to use hadcode strings
         val binding = inflater.inflate(R.layout.fragment_now_playing, container, false)
         val trackNameTitle = binding.findViewById<TextView>(R.id.titleView)
         val trackAlbum = binding.findViewById<TextView>(R.id.trackAlbum)
@@ -47,17 +48,17 @@ class NowPlayingFragment : Fragment() {
         playBtn = binding.findViewById(R.id.play_btn)
         name = args.name
         nowPlaying = true
-        if (!(activity as MainActivity).getIfPlaying(name)){
+        if (!(activity as MainActivity).getIfPlaying(name)) {
             (activity as MainActivity).stopCurrent()
             (activity as MainActivity).playSong(name)
         }
-        seekBar.max= (activity as MainActivity).getCurrentSongDuration(name)!!
+        seekBar.max = (activity as MainActivity).getCurrentSongDuration(name)!!
 
         // ------------ META RETRIEVER ------------------
-        fun setDisplayInfo(data: String){
+        fun setDisplayInfo(data: String) {
             nowPlayingTrackName = data
-            imgUri = "android.resource://"+activity?.packageName+"/drawable/${data}"
-            uriPath = "android.resource://"+activity?.packageName+"/raw/${data}"
+            imgUri = "android.resource://" + activity?.packageName + "/drawable/${data}"
+            uriPath = "android.resource://" + activity?.packageName + "/raw/${data}"
             uri = Uri.parse(uriPath)
             metaRetriever.setDataSource(context, uri)
             val titleName = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE).toString()
@@ -65,13 +66,12 @@ class NowPlayingFragment : Fragment() {
             trackPic.setImageURI(Uri.parse(imgUri))
             trackNameTitle.text = titleName
             trackAlbum.text = albumName
-
-
         }
         setDisplayInfo(name)
         // ------------ LISTENERS ----------------------
-        fun playNextTrack(direction: String){
-            when(direction){
+        fun playNextTrack(direction: String) {
+            when (direction) {
+                // todo: those could be constants
                 "next" -> {
                     val trackName = (activity as MainActivity).playNext()
                     nowPlayingTrackName = trackName
@@ -84,32 +84,37 @@ class NowPlayingFragment : Fragment() {
                 }
             }
         }
-        playBtn.setOnClickListener{
+        playBtn.setOnClickListener {
             if ((activity as MainActivity).getIfPlaying(nowPlayingTrackName)) {
                 (activity as MainActivity).pauseSong()
             } else {
                 (activity as MainActivity).playSong(nowPlayingTrackName)
             }
         }
-        nextBtn.setOnClickListener{
+        nextBtn.setOnClickListener {
+            // todo: the string next could a constant or a enum
             playNextTrack("next")
         }
-        previousBtn.setOnClickListener{
+        previousBtn.setOnClickListener {
+            // todo: the string previous could a constant or a enum
             playNextTrack("previous")
         }
 
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if(fromUser){
+                if (fromUser) {
                     (activity as MainActivity).playCurrentOn(progress)
                 }
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
                 println("onStartTracking")
+                // todo: Not use println for debug
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 println("onStopTracking")
+                // todo: Not use println for debug
             }
         })
         (activity as MainActivity).getCurrentSong()?.setOnCompletionListener {
@@ -117,7 +122,7 @@ class NowPlayingFragment : Fragment() {
         }
         // ------------ VOLUME BAR --------------------------
         val volumeBar = binding.findViewById<CircularSeekBar>(R.id.radialSeekBar)
-        volumeBar.setOnCircularSeekBarChangeListener(object : CircularSeekBar.OnCircularSeekBarChangeListener{
+        volumeBar.setOnCircularSeekBarChangeListener(object : CircularSeekBar.OnCircularSeekBarChangeListener {
             override fun onProgressChanged(
                 seekBar: CircularSeekBar?,
                 progress: Float,
@@ -126,18 +131,20 @@ class NowPlayingFragment : Fragment() {
                 (activity as MainActivity).getCurrentSong()?.setVolume(progress, progress)
             }
 
-            override fun onStartTrackingTouch(seekBar: CircularSeekBar?,) {
+            override fun onStartTrackingTouch(seekBar: CircularSeekBar?) {
                 println("touching")
+                // todo: Not use println for debug
             }
 
             override fun onStopTrackingTouch(seekBar: CircularSeekBar?) {
                 println("touching")
+                // todo: Not use println for debug
             }
 
         })
         // ------------------
         fun runSeekBar() {
-            if(nowPlaying){
+            if (nowPlaying) {
                 runnable = Runnable {
                     val seekBar: SeekBar = binding.findViewById(R.id.seekBar)
                     val currentTrack = (activity as MainActivity).getCurrentSong()
@@ -152,6 +159,7 @@ class NowPlayingFragment : Fragment() {
 
         return binding
     }
+
     override fun onDestroyView() {
         handler.removeCallbacksAndMessages(null)
         super.onDestroyView()

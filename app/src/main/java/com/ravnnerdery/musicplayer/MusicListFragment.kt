@@ -18,6 +18,8 @@ open class MusicListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //TODO: not the best way to handle the recreation process on life cycle changs
+
         binding = inflater.inflate(R.layout.fragment_music_list, container, false)
         val allMusic = (activity as MainActivity).listAllMusic()
         val musicListContainer = binding.findViewById<View>(R.id.musicList) as LinearLayout
